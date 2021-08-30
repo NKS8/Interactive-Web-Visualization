@@ -51,13 +51,13 @@ function buildCharts(selectedPatientId) {
             mode: 'markers',
             marker: {
                 size: filteredSampleValue.sample_values,
-                colorscale: "Electric",
+                colorscale: "Earth",
                 color: filteredSampleValue.otu_ids
             }
         }];
 
         var layout = {
-            title: 'Marker Size',
+            title: "OTU ID's vs Sample Values",
             showlegend: false,
             height: 600,
             width: 600
