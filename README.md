@@ -11,7 +11,6 @@ In this assignment, an interactive dashboard that shows Demographic Info chart, 
 
     * init() function created. 
     * JSON data files loaded and parsed of Patient ID.
-    * patientID is parsed
     * dropDown menu is created. 
     * id's appended into option and property value
 2. Demographich box, Bar chart and bubble chart are created accordingly. 
