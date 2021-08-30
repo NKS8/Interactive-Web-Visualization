@@ -89,7 +89,6 @@ function optionChanged(selectedPatientId) {
     // Update charts with newly selected sample
     console.log(selectedPatientId);
     buildCharts(selectedPatientId);
-    ls
     buildMetadata(selectedPatientId);
 }
 // Initialize dashboard on page load
