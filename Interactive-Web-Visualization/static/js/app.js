@@ -1,55 +1,96 @@
-/* The following is an example on how you might structure your code.
-This is not the only way to complete this assignment.
-Feel free to disregard and create your own code */
 
 // Define function that will run on page load
 function init() {
-
-    // Read json data
-
-        // Parse and filter data to get sample names
-
-        // Add dropdown option for each sample
-
-    // Call functions below using the first sample to build metadata and initial plots
-
+    // Read json data  Parse and filter data to get sample names Add dropdown option for each sample Call functions below using the first sample to build metadata and initial plots 
+    var dropDown = d3.select("#selDataset"); // d3 select id ="Dataset" from index.html
+    d3.json("samples.json").then(data => {
+        // parsing 
+        var patientIds = data.names; //  Patient Ids = (obj.k1) gives array of [940, 941 ... ]
+        patientIds.forEach(patientId => { // looping through array get each Ids 
+            dropDown.append("option").text(patientId).property("value", patientId); // appending to sel option, put texts as a val 
+        })
+        buildCharts(patientIds[0])
+        buildMetadata(patientIds[0]);
+    })
 }
 
-// Define a function that will create metadata for given sample
-function buildMetadata(sample) {
+// // Define a function that will create metadata for given sample
+// function buildMetadata(selectedPatientId) {
+//     // Read the json data
+//     // Parse and filter the data to get the sample's metadata
+//     // Specify the location of the metadata and update it
+//     var infoBox = d3.select("#sample-metadata");
+//     infoBox.html("")
+//     d3.json("samples.json").then(data => {
+//         var metadata = data.metadata;
+//         var filteredMetadataValue = metadata.filter(patient => patient.id == selectedPatientId)[0]
+//         console.log(filteredMetadataValue);
+//         console.log(Object.entries(filteredMetadataValue));
+//         Object.entries(filteredMetadataValue).forEach(([demoKey, demoVal]) => {
+//             infoBox.append(`h6`).text(`${demoKey} => ${demoVal}`);
+//             infoBox.append(`br`);
 
-    // Read the json data
+//         })
 
-        // Parse and filter the data to get the sample's metadata
+//     });
+// }
 
-        // Specify the location of the metadata and update it
+// // Define a function that will create charts for given sample
+// function buildCharts(selectedPatientId) {
+//     // Read the json data
+//     // Parse and filter the data to get the sample's OTU data
+//     // Pay attention to what data is required for each chart
+//     // Create bar chart in correct location
+//     // Create bubble chart in correct location 
+//     d3.json("samples.json").then(data => {
+//         var sampleValues = data.samples;
+//         var filteredSampleValue = sampleValues.filter(patient => patient.id == selectedPatientId)[0]
+//         var data1 = [{
+//             x: filteredSampleValue.otu_ids,
+//             y: filteredSampleValue.sample_values,
+//             mode: 'markers',
+//             marker: {
+//                 size: filteredSampleValue.sample_values,
+//                 colorscale: "Electric",
+//                 color: filteredSampleValue.otu_ids
+//             }
+//         }];
 
-}
-
-// Define a function that will create charts for given sample
-function buildCharts(sample) {
-
-    // Read the json data
-
-        // Parse and filter the data to get the sample's OTU data
-        // Pay attention to what data is required for each chart
-
-        // Create bar chart in correct location
-
-        // Create bubble chart in correct location
-    
-}
+//         var layout = {
+//             title: 'Marker Size',
+//             showlegend: false,
+//             height: 600,
+//             width: 600
+//         };
+//         Plotly.newPlot('bubble', data1, layout);
+//         // bar chart 
 
 
-function optionChanged(sample){
-    // The parameter being passed in this function is new sample id from dropdown menu
+//         var data2 = [{
+//             x: filteredSampleValue.sample_values.slice(0, 10).reverse(),
+//             y: filteredSampleValue.otu_ids.slice(0, 10).map(otuID => `OTU ${otuID}`).reverse(),
 
-    // Update metadata with newly selected sample
+//             type: 'bar',
+//             orientation: "h"
+//         }];
 
-    // Update charts with newly selected sample
 
-}
+//         var layout = {
+//             title: 'Sample Values vs Otu-ids'
+//         };
 
-// Initialize dashboard on page load
+//         Plotly.newPlot('bar', data2, layout);
+//     })
+// }
+
+// function optionChanged(selectedPatientId) {
+//     // The parameter being passed in this function is new sample id from dropdown menu
+//     // Update metadata with newly selected sample
+//     // Update charts with newly selected sample
+//     console.log(selectedPatientId);
+//     buildCharts(selectedPatientId);
+//     buildMetadata(selectedPatientId);
+// }
+// // Initialize dashboard on page load
 init();
 
