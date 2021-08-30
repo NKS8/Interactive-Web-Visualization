@@ -66,20 +66,20 @@ function buildCharts(selectedPatientId) {
         // bar chart 
 
 
-        // var data2 = [{
-        //     x: filteredSampleValue.sample_values.slice(0, 10).reverse(),
-        //     y: filteredSampleValue.otu_ids.slice(0, 10).map(otuID => `OTU ${otuID}`).reverse(),
+        var data2 = [{
+            x: filteredSampleValue.sample_values.slice(0, 10).reverse(),
+            y: filteredSampleValue.otu_ids.slice(0, 10).map(otuID => `OTU ${otuID}`).reverse(),
 
-        //     type: 'bar',
-        //     orientation: "h"
-        // }];
+            type: 'bar',
+            orientation: "h"
+        }];
 
 
-        // var layout = {
-        //     title: 'Sample Values vs Otu-ids'
-        // };
+        var layout = {
+            title: 'Sample Values vs Otu-ids'
+        };
 
-        // Plotly.newPlot('bar', data2, layout);
+        Plotly.newPlot('bar', data2, layout);
     })
 }
 
