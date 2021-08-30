@@ -35,62 +35,62 @@ function init() {
 //     });
 // }
 
-// // Define a function that will create charts for given sample
-// function buildCharts(selectedPatientId) {
-//     // Read the json data
-//     // Parse and filter the data to get the sample's OTU data
-//     // Pay attention to what data is required for each chart
-//     // Create bar chart in correct location
-//     // Create bubble chart in correct location 
-//     d3.json("samples.json").then(data => {
-//         var sampleValues = data.samples;
-//         var filteredSampleValue = sampleValues.filter(patient => patient.id == selectedPatientId)[0]
-//         var data1 = [{
-//             x: filteredSampleValue.otu_ids,
-//             y: filteredSampleValue.sample_values,
-//             mode: 'markers',
-//             marker: {
-//                 size: filteredSampleValue.sample_values,
-//                 colorscale: "Electric",
-//                 color: filteredSampleValue.otu_ids
-//             }
-//         }];
+// Define a function that will create charts for given sample
+function buildCharts(selectedPatientId) {
+    // Read the json data
+    // Parse and filter the data to get the sample's OTU data
+    // Pay attention to what data is required for each chart
+    // Create bar chart in correct location
+    // Create bubble chart in correct location 
+    d3.json("samples.json").then(data => {
+        var sampleValues = data.samples;
+        var filteredSampleValue = sampleValues.filter(patient => patient.id == selectedPatientId)[0]
+        var data1 = [{
+            x: filteredSampleValue.otu_ids,
+            y: filteredSampleValue.sample_values,
+            mode: 'markers',
+            marker: {
+                size: filteredSampleValue.sample_values,
+                colorscale: "Electric",
+                color: filteredSampleValue.otu_ids
+            }
+        }];
 
-//         var layout = {
-//             title: 'Marker Size',
-//             showlegend: false,
-//             height: 600,
-//             width: 600
-//         };
-//         Plotly.newPlot('bubble', data1, layout);
-//         // bar chart 
-
-
-//         var data2 = [{
-//             x: filteredSampleValue.sample_values.slice(0, 10).reverse(),
-//             y: filteredSampleValue.otu_ids.slice(0, 10).map(otuID => `OTU ${otuID}`).reverse(),
-
-//             type: 'bar',
-//             orientation: "h"
-//         }];
+        var layout = {
+            title: 'Marker Size',
+            showlegend: false,
+            height: 600,
+            width: 600
+        };
+        Plotly.newPlot('bubble', data1, layout);
+        // bar chart 
 
 
-//         var layout = {
-//             title: 'Sample Values vs Otu-ids'
-//         };
+        // var data2 = [{
+        //     x: filteredSampleValue.sample_values.slice(0, 10).reverse(),
+        //     y: filteredSampleValue.otu_ids.slice(0, 10).map(otuID => `OTU ${otuID}`).reverse(),
 
-//         Plotly.newPlot('bar', data2, layout);
-//     })
-// }
+        //     type: 'bar',
+        //     orientation: "h"
+        // }];
 
-// function optionChanged(selectedPatientId) {
-//     // The parameter being passed in this function is new sample id from dropdown menu
-//     // Update metadata with newly selected sample
-//     // Update charts with newly selected sample
-//     console.log(selectedPatientId);
-//     buildCharts(selectedPatientId);
-//     buildMetadata(selectedPatientId);
-// }
-// // Initialize dashboard on page load
+
+        // var layout = {
+        //     title: 'Sample Values vs Otu-ids'
+        // };
+
+        // Plotly.newPlot('bar', data2, layout);
+    })
+}
+
+function optionChanged(selectedPatientId) {
+    // The parameter being passed in this function is new sample id from dropdown menu
+    // Update metadata with newly selected sample
+    // Update charts with newly selected sample
+    console.log(selectedPatientId);
+    buildCharts(selectedPatientId);
+    // buildMetadata(selectedPatientId);
+}
+// Initialize dashboard on page load
 init();
 
