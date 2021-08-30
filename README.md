@@ -2,7 +2,7 @@
 #14
 
 
-In this assignment, an interactive dashboard that shows Demographic Info chart, bar chart, and bubble chart are built to explore the Belly Button Biodiversity dataset.
+In this assignment, an interactive dashboard that shows Demographic Info chart, bar chart, and bubble chart are built to explore the Belly Button Biodiversity dataset as seen below. It loaded data, parse, manipulate by mapping and filter JavaScript functions and plotted by using JavaScrip plotly. Data is displaed on web page as interactive dashboard. 
 
 ![image](https://user-images.githubusercontent.com/67448948/131385184-5ca6ca03-4bfc-4c3f-8545-87ef7815610d.png)
 
