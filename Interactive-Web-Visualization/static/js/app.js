@@ -14,26 +14,26 @@ function init() {
     })
 }
 
-// // Define a function that will create metadata for given sample
-// function buildMetadata(selectedPatientId) {
-//     // Read the json data
-//     // Parse and filter the data to get the sample's metadata
-//     // Specify the location of the metadata and update it
-//     var infoBox = d3.select("#sample-metadata");
-//     infoBox.html("")
-//     d3.json("samples.json").then(data => {
-//         var metadata = data.metadata;
-//         var filteredMetadataValue = metadata.filter(patient => patient.id == selectedPatientId)[0]
-//         console.log(filteredMetadataValue);
-//         console.log(Object.entries(filteredMetadataValue));
-//         Object.entries(filteredMetadataValue).forEach(([demoKey, demoVal]) => {
-//             infoBox.append(`h6`).text(`${demoKey} => ${demoVal}`);
-//             infoBox.append(`br`);
+// Define a function that will create metadata for given sample
+function buildMetadata(selectedPatientId) {
+    // Read the json data
+    // Parse and filter the data to get the sample's metadata
+    // Specify the location of the metadata and update it
+    var infoBox = d3.select("#sample-metadata");
+    infoBox.html("")
+    d3.json("samples.json").then(data => {
+        var metadata = data.metadata;
+        var filteredMetadataValue = metadata.filter(patient => patient.id == selectedPatientId)[0]
+        console.log(filteredMetadataValue);
+        console.log(Object.entries(filteredMetadataValue));
+        Object.entries(filteredMetadataValue).forEach(([demoKey, demoVal]) => {
+            infoBox.append(`h6`).text(`${demoKey} : ${demoVal}`);
+    
 
-//         })
+        })
 
-//     });
-// }
+    });
+}
 
 // Define a function that will create charts for given sample
 function buildCharts(selectedPatientId) {
@@ -89,7 +89,7 @@ function optionChanged(selectedPatientId) {
     // Update charts with newly selected sample
     console.log(selectedPatientId);
     buildCharts(selectedPatientId);
-    // buildMetadata(selectedPatientId);
+    //buildMetadata(selectedPatientId);
 }
 // Initialize dashboard on page load
 init();
