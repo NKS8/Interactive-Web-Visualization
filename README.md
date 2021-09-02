@@ -8,7 +8,7 @@ In this assignment, an interactive dashboard that shows Demographic Info chart, 
 
 1. Initial set up is created by creating directories and github.
 
-    * init() function created. 
+    * init() function created in .js file. 
     * JSON data files loaded and parsed of Patient ID.
     * dropDown menu is created. 
     * id's appended into option and property value
