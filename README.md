@@ -14,7 +14,7 @@ In this assignment, an interactive dashboard that shows Demographic Info chart, 
     * id's appended into option and property value
 2. Demographich box built from metaData. 
     * Demograpic info box is created and data is parsed to get information from metadata
-    * parsed datas are crated with key and value adn appendded
+    * parsed datas are created with key-value pairs and appendded
 3. Bar and buble charts are built.
     * JSON data are loaded and parsed and filtered to associated patient ids
     * datas accessed for otu_ids and sample_values 
@@ -23,3 +23,4 @@ In this assignment, an interactive dashboard that shows Demographic Info chart, 
     * buildChar function is called on selected patientId
     * buildMetaData function is  called on selectedpatientId
 5. init() funciton is called. 
+6. Final result is shown above as a screenshot. 
